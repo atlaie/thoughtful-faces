@@ -47,7 +47,7 @@ We have made available online the output of these files; we are sharing the pre-
 To use the cross-validation mode, use:
 
 ```bash
-python -m mouse_SLDS_final --doCV "True" --date "DATE1"
+python -m mouse_MSLR_final --doCV "True" --date "DATE1"
 ```
 
 Where "DATE1" is the current date (to append it to the output name).
@@ -55,7 +55,7 @@ Where "DATE1" is the current date (to append it to the output name).
 To use the previously found parameters in cross-validation and then infer for the held out sets, use:
 
 ```bash
-python -m mouse_MSLR_final --doCV "False" --filename "path/to/file/Mouse/Results_CV_sLDS_Optuna_mouse_NTRIALStrials_Ns_states_DATE1_RT_AllSubjects_R2score_CVOnly.npz" --date "DATE2"
+python -m mouse_MSLR_final --doCV "False" --filename "path/to/file/Mouse/Results_CV_MSLR_Optuna_mouse_NTRIALStrials_Ns_states_DATE1_RT_AllSubjects_R2score_CVOnly.npz" --date "DATE2"
 ```
 
 With "Ns" being the optimal number of states (found in cross-validation), "NTRIALS" is the number of trials you used in the optimization step (100 by default); "DATE1" being the CV date and "DATE2" the inferring date (not necessarily matching). Results will be automatically saved in a new folder called "Results", within the same parent directory.
