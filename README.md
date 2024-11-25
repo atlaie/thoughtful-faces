@@ -1,94 +1,119 @@
-# Thoughtful faces: the repository.
+Here’s an updated version of your README with a more logical flow of operations and improved clarity:
 
-This repository contains the data preprocessing, computation, and plotting scripts used in the research paper: **"Thoughtful faces: inferring internal states across species using facial features"**. The purpose of these scripts is to provide a transparent and reproducible framework for our data analysis process, enabling peers to review, replicate, and build upon our work.
+---
+
+# Thoughtful Faces: The Repository
+
+This repository contains the data preprocessing, computation, and plotting scripts used in the research paper: **"Thoughtful Faces: Inferring Internal States Across Species Using Facial Features"**. These scripts aim to provide a transparent and reproducible framework for our data analysis process, enabling peers to review, replicate, and build upon our work.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Follow these instructions to set up and run the project on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-Before running the scripts, ensure you have the required software/tools installed. You can check them out in "requirements_final.txt".
-
-You can install all required Python packages using the following command:
-
-```bash
-pip install -r requirements_final.txt
-```
+Ensure you have Python installed (preferably version 3.8 or higher) and a suitable package manager like `pip`.
 
 ### Installation
 
-Clone this repository to your local machine using:
+1. Clone this repository to your local machine:
 
-```bash
-git clone https://github.com//atlaie/thoughtful-faces.git
-```
+   ```bash
+   git clone https://github.com/atlaie/thoughtful-faces.git
+   ```
 
-Navigate into the cloned repository:
+2. Navigate into the cloned repository:
 
-```bash
-cd thoughtful-faces
-```
+   ```bash
+   cd thoughtful-faces
+   ```
+
+3. Install the required Python packages listed in `requirements_final.txt`:
+
+   ```bash
+   pip install -r requirements_final.txt
+   ```
 
 ### Running the Scripts
 
-In the following, for every explanation involving a particular species, there's another mirrored script with the other one. For simplicity, we'll explain everything using "mouse" as an example, but it would be exactly the same if "macaque" was used instead.
+For simplicity, this guide uses "mouse" as an example. Equivalent scripts exist for "macaque," and the instructions are identical, substituting "mouse" with "macaque" as needed.
 
-1. **Data Preprocessing**: To prepare the data for analysis, run the preprocessing script:
+#### 1. **Data Preprocessing**
+
+To prepare the data for analysis, run the preprocessing script:
 
 ```bash
 python preprocess_mouse_data.py
 ```
 
-We have made available online the output of these files; we are sharing the pre-processing scripts for transparency purposes.
+The outputs of these scripts are shared online for convenience, but the preprocessing scripts are provided for transparency.
 
-2. **Computation**: There are two main computations and modes of use of these scripts: cross-validation mode (i.e. finding the parameters that work best to explain the data) and inference (after the previously mentioned parameters are found).
-  
-To use the cross-validation mode, use:
+#### 2. **Computation**
+
+The computational scripts have two main modes:
+
+- **Cross-validation mode**: Identifies optimal parameters for explaining the data.
+- **Inference mode**: Applies these parameters to make predictions on held-out datasets.
+
+To run cross-validation, use:
 
 ```bash
 python -m mouse_MSLR_final --doCV "True" --date "DATE1"
 ```
 
-Where "DATE1" is the current date (to append it to the output name).
+Replace `DATE1` with the current date to append it to the output name.
 
-To use the previously found parameters in cross-validation and then infer for the held out sets, use:
+To use the parameters identified during cross-validation for inference, use:
 
 ```bash
 python -m mouse_MSLR_final --doCV "False" --filename "path/to/file/Mouse/Results_CV_MSLR_Optuna_mouse_NTRIALStrials_Ns_states_DATE1_RT_AllSubjects_R2score_CVOnly.npz" --date "DATE2"
 ```
 
-With "Ns" being the optimal number of states (found in cross-validation), "NTRIALS" is the number of trials you used in the optimization step (100 by default); "DATE1" being the CV date and "DATE2" the inferring date (not necessarily matching). Results will be automatically saved in a new folder called "Results", within the same parent directory.
+Replace:
+- `Ns` with the optimal number of states from cross-validation.
+- `NTRIALS` with the number of trials (default: 100).
+- `DATE1` with the cross-validation date.
+- `DATE2` with the inference date (not necessarily matching).
 
-3. **Plotting**: For generating the figures presented in the paper, use:
+Results will be saved in a `Results` folder within the repository.
+
+#### 3. **Plotting**
+
+To recreate the paper's figures, run:
 
 ```bash
 python plotting_main.py
 ```
 
-And for the supplementary figures:
+To generate supplementary figures, use:
 
 ```bash
 python plotting_supplementary.py
 ```
 
-## Structure of the Repository
+## Repository Structure
 
 - `preprocess_mouse_data.py`: Script for cleaning and preparing mouse data.
 - `mouse_MSLR_final.py`: Script containing the main computational analyses for mouse data.
-- `plotting_main.ipynb`: Notebook for creating visualizations.
-- `plotting_supplementary.ipynb`: Notebook for creating supplementary visualizations.
+- `plotting_main.py`: Script for creating main visualizations.
+- `plotting_supplementary.py`: Script for creating supplementary visualizations.
 - `/data`: Directory containing raw and processed data files.
 
 ## Reproducing Results
 
-To reproduce the results presented in the paper, follow the execution order mentioned in the [Running the Scripts](#running-the-scripts) section. Ensure the `/data` directory contains the necessary datasets.
+To reproduce the results from the paper:
+1. Preprocess the data using the relevant script.
+2. Perform cross-validation and save the optimal parameters.
+3. Use the identified parameters to run inference.
+4. Generate figures using the plotting scripts.
+
+Ensure that the `/data` directory contains the necessary datasets for analysis.
 
 ## Authors
 
 - **Alejandro Tlaie** - *Initial work* - [atlaie](https://github.com/atlaie)
 
-See also the list of [contributors](https://github.com/yourusername/your-repository-name/contributors) who participated in this project.
+See the list of [contributors](https://github.com/yourusername/your-repository-name/contributors) who participated in this project.
 
 ## Citation
 
