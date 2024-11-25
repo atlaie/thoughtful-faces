@@ -1,7 +1,3 @@
-Here’s an updated version of your README with a more logical flow of operations and improved clarity:
-
----
-
 # Thoughtful Faces: The Repository
 
 This repository contains the data preprocessing, computation, and plotting scripts used in the research paper: **"Thoughtful Faces: Inferring Internal States Across Species Using Facial Features"**. These scripts aim to provide a transparent and reproducible framework for our data analysis process, enabling peers to review, replicate, and build upon our work.
@@ -12,7 +8,7 @@ Follow these instructions to set up and run the project on your local machine fo
 
 ### Prerequisites
 
-Ensure you have Python installed (preferably version 3.8 or higher) and a suitable package manager like `pip`.
+Ensure you have Python installed (preferably version 3.9.6) and a suitable package manager like `conda`.
 
 ### Installation
 
@@ -31,7 +27,7 @@ Ensure you have Python installed (preferably version 3.8 or higher) and a suitab
 3. Install the required Python packages listed in `requirements_final.txt`:
 
    ```bash
-   pip install -r requirements_final.txt
+   conda create --name <env> --file <this file>
    ```
 
 ### Running the Scripts
@@ -95,8 +91,9 @@ python plotting_supplementary.py
 
 - `preprocess_mouse_data.py`: Script for cleaning and preparing mouse data.
 - `mouse_MSLR_final.py`: Script containing the main computational analyses for mouse data.
-- `plotting_main.py`: Script for creating main visualizations.
-- `plotting_supplementary.py`: Script for creating supplementary visualizations.
+- `plotting_main.ipynb`: Notebook for creating main visualizations.
+- `plotting_supplementary.ipynb`: Notebook for creating supplementary visualizations.
+- `control_analyses.ipynb`: Notebook for creating and plotting control analyses.
 - `/data`: Directory containing raw and processed data files.
 
 ## Reproducing Results
@@ -106,14 +103,6 @@ To reproduce the results from the paper:
 2. Perform cross-validation and save the optimal parameters.
 3. Use the identified parameters to run inference.
 4. Generate figures using the plotting scripts.
-
-Ensure that the `/data` directory contains the necessary datasets for analysis.
-
-## Authors
-
-- **Alejandro Tlaie** - *Initial work* - [atlaie](https://github.com/atlaie)
-
-See the list of [contributors](https://github.com/yourusername/your-repository-name/contributors) who participated in this project.
 
 ## Citation
 
