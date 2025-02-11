@@ -39,7 +39,7 @@ For simplicity, this guide uses "mouse" as an example. Equivalent scripts exist 
 To prepare the data for analysis, run the preprocessing script:
 
 ```bash
-python preprocess_mouse_data.py
+python computations/preprocess_mouse_data.py
 ```
 
 The outputs of these scripts are shared online for convenience, but the preprocessing scripts are provided for transparency.
@@ -54,7 +54,7 @@ The computational scripts have two main modes:
 To run cross-validation, use:
 
 ```bash
-python -m mouse_MSLR_final --doCV "True" --date "DATE1"
+python -m computations/mouse_MSLR_final --doCV "True" --date "DATE1"
 ```
 
 Replace `DATE1` with the current date to append it to the output name.
@@ -62,7 +62,7 @@ Replace `DATE1` with the current date to append it to the output name.
 To use the parameters identified during cross-validation for inference, use:
 
 ```bash
-python -m mouse_MSLR_final --doCV "False" --filename "path/to/file/Mouse/Results_CV_MSLR_Optuna_mouse_NTRIALStrials_Ns_states_DATE1_RT_AllSubjects_R2score_CVOnly.npz" --date "DATE2"
+python -m computations/mouse_MSLR_final --doCV "False" --filename "path/to/file/Mouse/Results_CV_MSLR_Optuna_mouse_NTRIALStrials_Ns_states_DATE1_RT_AllSubjects_R2score_CVOnly.npz" --date "DATE2"
 ```
 
 Replace:
@@ -78,13 +78,13 @@ Results will be saved in a `Results` folder within the repository.
 To recreate the paper's figures, run:
 
 ```bash
-python plotting_main.py
+python plotting/plotting_main.py
 ```
 
 To generate supplementary figures, use:
 
 ```bash
-python plotting_supplementary.py
+python plotting/plotting_supplementary.py
 ```
 
 ## Repository Structure
